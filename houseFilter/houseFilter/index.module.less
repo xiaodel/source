@@ -1,0 +1,303 @@
+@titleHeight: 80px;
+
+.flex-center-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filterContainer {
+    height: @titleHeight;
+
+    .oneLine {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .hidden{
+        display: none;
+    }
+
+    .filterWrapper {
+        position: fixed;
+        z-index: 20;
+        top: @titleHeight;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, .5);
+
+        .filterList {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            transform: translate3d(0, -100%, 0);
+            transition: transform .4s ease;
+
+
+            .filterListBox {
+                .bottomButtonBoxCommon {
+                    display: flex;
+
+                    .resetButton {
+                        margin: 0;
+                        width: 30%;
+                        background-color: #F0F0F0;
+                        color: #666666;
+                        border-color: #F0F0F0;
+                        border-radius: 0;
+                    }
+
+                    .confirmButton {
+                        width: 70%;
+                        margin-left: 20px;
+                        background-color: #389EF2;
+                        color: white;
+                        border-color: #389EF2;
+                        border-radius: 0;
+                    }
+                }
+
+                &.rentArea {
+                    overflow: auto;
+
+                    .areaRegion {
+                        height: 500px;
+                        display: flex;
+
+                        .scrollView{
+                            height: 100%;
+                        }
+
+                        .filterListLevel1 {
+                            height: 100%;
+                            width: 100%;
+                            padding: 20px 0;
+
+                            .level1Item{
+                                display: flex;
+                                padding: 20px 0 20px 40px;
+                                position: relative;
+                                font-weight: 700;
+
+                                .icon{
+                                    position: absolute;
+                                    left: 0;
+                                    top: 30px;
+                                    height: 26px;
+                                    width: 6px;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .filterListLevel2 {
+                            width: 100%;
+                            padding: 20px 40px;
+
+                            .level2Item{
+                                display: flex;
+                                padding: 20px 0;
+                            }
+                        }
+
+                        .filterListLevel3 {
+                            padding: 20px 40px;
+
+                            .level3Item{
+                                display: flex;
+                                justify-content: space-between;
+                                padding: 20px 0;
+
+                                .checkbox{
+                                    height: 20px;
+                                    width: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomButtonBox {
+                        padding: 30px;
+                        .bottomButtonBoxCommon;
+                    }
+                }
+
+                &.rentType {
+                    padding: 0 30px 30px 30px;
+                    background-color: #fff;
+                    overflow: auto;
+
+                    .model {
+                        margin-top: 50px;
+
+                        .modelTitle {
+                            font-size: 32px;
+                            font-weight: 700;
+                        }
+
+                        .modelBox {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .modelItem {
+                                width: 18%;
+                                margin: 20px 2.5% 0 0;
+                                font-size: 26px;
+                                border-color: #F0F0F0;
+
+
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .bottomButtonBox {
+                        margin-top: 60px;
+                        .bottomButtonBoxCommon;
+                    }
+                }
+
+                &.rentMoney {
+                    padding: 0 30px 30px 30px;
+                    background-color: #fff;
+                    overflow: auto;
+
+                    .model {
+                        margin-top: 50px;
+
+                        .modelBox {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            .modelItem {
+                                margin: 20px 0 0 0;
+                                width: 47.5%;
+                                font-size: 26px;
+                                border-color: #F0F0F0;
+                            }
+                        }
+
+                        .moneyRange{
+                            width: 100%;
+                        }
+
+                    }
+
+                    .bottomButtonBox {
+                        margin-top: 60px;
+                        .bottomButtonBoxCommon;
+                    }
+                }
+
+                &.moreRent {
+                    padding: 0 30px 30px 30px;
+                    background-color: #fff;
+                    overflow: auto;
+
+                    .model {
+                        margin-top: 50px;
+
+                        .modelTitle {
+                            font-size: 32px;
+                            font-weight: 700;
+                        }
+
+                        .modelBox {
+                            display: flex;
+                            flex-wrap: wrap;
+
+                            .modelItem {
+                                width: 23%;
+                                margin: 20px 2% 0 0;
+                                font-size: 26px;
+                                border-color: #F0F0F0;
+
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .bottomButtonBox {
+                        margin-top: 60px;
+                        .bottomButtonBoxCommon;
+                    }
+                }
+
+                &.sort {
+                    padding: 30px;
+                    background-color: #fff;
+                    overflow: auto;
+
+                    .item {
+                        width: 100%;
+                        height: @titleHeight;
+                        line-height: @titleHeight;
+                        text-align: center;
+                    }
+                }
+            }
+
+
+        }
+
+        .filterListShow {
+            transform: translateZ(0);
+        }
+    }
+
+    .filterTitle {
+        .flex-center-space-between;
+        line-height: @titleHeight;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid #e4e6f0;
+        overflow: hidden;
+        font-size: 30px;
+
+        .filterTitleItem {
+            flex-grow: 1;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .filterTitleForceFixed {
+        position: fixed;
+        top: -1px;
+        left: 0;
+        z-index: 21;
+        height: @titleHeight;
+    }
+
+    .select {
+        .selectText{
+            color: #3072f6;
+        }
+        .icon{
+            background-color: #389EF2;
+        }
+        .selectButton{
+            color: white;
+            border-color: #3072f6;
+            .icon;
+        }
+        .unSelectButton{
+            color: #666666;
+            background-color: #F0F0F0;
+        }
+    }
+}
